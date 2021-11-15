@@ -1,22 +1,14 @@
 
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
-import 'isomorphic-unfetch';
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/index.scss';
 import Navbar from '../components/shared/Navbar';
 import Hero from '../components/shared/Hero';
 
-const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql'
-})
-
 function MyApp({ Component, pageProps }) {
 
   let home = Component.name === 'Home' ;
   return (
-    <ApolloProvider client={client}>
       <div className="portfolio-app">
         <Navbar />
         { home && <Hero />}
@@ -31,7 +23,6 @@ function MyApp({ Component, pageProps }) {
         </footer>
         }
       </div>
-    </ApolloProvider>
   )
 }
 
