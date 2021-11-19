@@ -3,7 +3,12 @@ const mongoose = require('mongoose');
 const config = require('../config/dev');
 const fakeDb = require('./FakeDb');
 
-mongoose.connect(config.DB_URI, {},
+mongoose.connect(config.DB_URI, {
+    //useCreatendex: true, 
+    //useFindAndModify: false, 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+ },
  async () => {
     console.log('Starting populating DB');
     await fakeDb.populate();

@@ -12,7 +12,7 @@
 
   exports.portfolioMutations = {
     createPortfolio: async (root, {input},ctx) => {
-      const newPortfolio = await Portfolio.create(input);
+      const newPortfolio = await ctx.models.Portfolio.create(input);
       return newPortfolio;
     },
     updatePortfolio : async (root , {id , input},ctx) => {
@@ -22,5 +22,18 @@
     deletePortfolio : async(root, {id},ctx) => {
       const deletedPortfolio = await ctx.models.Portfolio.findAndDelete(id);
       return deletedPortfolio._id;
+    }
+  };
+
+  exports.userMutations = {
+    signUp: async (root, {input},ctx) => {
+      const registeredUser = await  ctx.models.User.signUp(input);
+      return registeredUser._id;
+    },
+    signIn : async (root, {input},ctx) => {
+      return  ctx.models.User.signIn(input, ctx);
+    },
+    signOut : async(root, args,ctx) => {
+      return ctx.models.User.signOut(ctx);
     }
   };

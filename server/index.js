@@ -7,10 +7,13 @@ const app = next({ dev })
 const handle = app.getRequestHandler();
 
 // Connect to DB
-require('./database').connect();
+const db = require('./database');
+db.connect();
 
 app.prepare().then( async () => {
   const server = express();
+
+  require('./middlewares').init(server, db);
 
   const apolloServer = require('./graphql').createApolloServer();
   await apolloServer.start();
