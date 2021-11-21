@@ -5,6 +5,13 @@ class User {
         this.Model = model;
     }
 
+    getAuthUser(ctx) {
+        if (ctx.isAuthenticated()){
+            return ctx.getUser();
+        }
+        return null;
+    }
+
     async signUp(signUpData) {
         if ( signUpData.passowrd !== signUpData.passowrdConfirmation ){
             throw new Error('Password must be the same as confirmation Password!');
