@@ -118,7 +118,9 @@ mutation SignIn(
     role
     avatar
   }
-}`
+}`;
+
+export const SIGN_OUT = gql`mutation SignOut{ signOut }`;
 
 export const GET_USER = gql`
   query User {

@@ -5,7 +5,7 @@ import Redirect from '@/components/shared/Redirect';
 
 const Login = () => {
 
-    const [ signIn ,{data, error}] = useSignIn();
+    const [ signIn ,{data,loading, error}] = useSignIn();
 
     const errorMessage = (error) => {
         console.log("--------error----",error);
@@ -18,7 +18,7 @@ const Login = () => {
                 <div className="row">
                 <div className="col-md-5 mx-auto">
                     <h1 className="page-title">Login</h1>
-                    <LoginForm onSubmit={
+                    <LoginForm loading={loading} onSubmit={
                         (signInData) => signIn({variables:signInData})
                     }/>
                     { data && data.signIn && <Redirect to="/" />}
