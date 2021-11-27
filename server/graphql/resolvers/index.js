@@ -50,5 +50,8 @@
   exports.forumQueries = {
     forumCategories: async(root, args, ctx) => {
       return ctx.models.ForumCategory.getAll();
+    },
+    topicsByCategory : async(root, { category }, ctx) => {
+      return ctx.models.Topic.getAllByCategory(category);
     }
   }
