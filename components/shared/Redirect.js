@@ -1,6 +1,7 @@
 
-import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 
 const Redirect = ({ to }) => {
     const router = useRouter();

@@ -1,9 +1,10 @@
 
 import Navbar from "../components/shared/Navbar";
 import Hero from "../components/shared/Hero";
+import BaseLayout from '@/layouts/BaseLayout';
 
 const Home = () => (
-  <>
+  <BaseLayout>
       {/* HOME PAGE STARTS */}
       <section className="section-title">
         <div className="px-2">
@@ -140,7 +141,7 @@ const Home = () => (
       </div>
     </div>
     {/* REPLIER ENDS */}
-  </>
+  </BaseLayout>
 )
 
 export default Home

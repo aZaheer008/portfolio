@@ -1,7 +1,8 @@
 
+import BaseLayout from '@/layouts/BaseLayout';
 const ForumCategories = () => {
     return (
-        <>
+        <BaseLayout>
         {/* FORUM CATEGORIES START */}
         <section className="section-title">
             <div className="px-2">
@@ -72,7 +73,7 @@ const ForumCategories = () => {
             </div>
         </section>
         {/* FORUM CATEGORIES ENDS */}
-        </>
+        </BaseLayout>
     )
 }
 
