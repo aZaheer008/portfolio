@@ -8,8 +8,11 @@
     portfolios: async (root , args , ctx) => {
       return ctx.models.Portfolio.getAll();
     },
-    userPortfolios: (root, args, ctx) => {
+    userPortfolios: async(root, args, ctx) => {
+      // let result = await ctx.models.Portfolio.getAllByUser();
+      // console.log("--------resolvers----",JSON.stringify(result));
       return ctx.models.Portfolio.getAllByUser();
+      // return ctx.models.Portfolio.getAllByUser();
     }
   };
 

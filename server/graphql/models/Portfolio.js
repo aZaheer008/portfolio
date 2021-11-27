@@ -11,8 +11,11 @@ class Portfolio {
         return this.Model.find({});
     }
 
-    getAllByUser() {
-        return this.Model.find({user: this.user._id}).sort({startDate: 'desc'});
+    async getAllByUser() {
+        // let result = await this.Model.find({user: this.user._id}).sort({startDate: 'desc'});
+        // console.log("-----------result------- : ",result);
+        return this.Model.find({user: this.user._id}).sort({startDate: 'desc'});;
+        // return this.Model.find({user: "6199efe9f46d0e3cd94f1854"}).sort({startDate: 'desc'});
       }
 
     getById(id){
