@@ -12,10 +12,7 @@ class Portfolio {
     }
 
     async getAllByUser() {
-        // let result = await this.Model.find({user: this.user._id}).sort({startDate: 'desc'});
-        // console.log("-----------result------- : ",result);
         return this.Model.find({user: this.user._id}).sort({startDate: 'desc'});;
-        // return this.Model.find({user: "6199efe9f46d0e3cd94f1854"}).sort({startDate: 'desc'});
       }
 
     getById(id){
@@ -31,7 +28,7 @@ class Portfolio {
     }
 
     findAndUpdate(id, data) {
-        return this.Model.findOneAndUpdate({_id:id}, data, {new:true});
+        return this.Model.findOneAndUpdate({_id:id}, data, {new:true, runValidators : true});
     }
 
     findAndDelete(id) {

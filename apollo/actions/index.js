@@ -1,8 +1,9 @@
 
 import { useQuery , useMutation , useLazyQuery } from '@apollo/react-hooks';
-import { SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
+import { GET_PORTFOLIO,SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
 
 export const useGetPotfolios = () => useQuery(GET_PORTFOLIOS);
+export const useGetPotfolio = (options) => useQuery(GET_PORTFOLIO,options);
 export const useGetUserPortfolios = () => useQuery(GET_USER_PORTFOLIOS);
 export const useUpdatePortfolio = () => useMutation(UPDATE_PORTFOLIO);
 export const useDeletePortfolio = () => useMutation(DELETE_PORTFOLIO,{
