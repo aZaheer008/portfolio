@@ -1,6 +1,6 @@
 
 import { useQuery , useMutation , useLazyQuery } from '@apollo/react-hooks';
-import { FORUM_CATEGORIES,GET_PORTFOLIO,SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
+import { TOPICS_BY_CATEGORY,FORUM_CATEGORIES,GET_PORTFOLIO,SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
 
 export const useGetPotfolios = () => useQuery(GET_PORTFOLIOS);
 export const useGetPotfolio = (options) => useQuery(GET_PORTFOLIO,options);
@@ -44,6 +44,7 @@ export const useGetUser = () => useQuery(GET_USER);
 // Auth Action End----------------------
 
 // Forum actions Start -----------------------
-export const useGetForumCategories = () => useQuery(FORUM_CATEGORIES)
+export const useGetForumCategories = () => useQuery(FORUM_CATEGORIES);
+export const useGetTopicsByCategory = (options) => useQuery(TOPICS_BY_CATEGORY, options)
 
 // Forum actions End -----------------------
