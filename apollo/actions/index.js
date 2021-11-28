@@ -1,6 +1,7 @@
 
 import { useQuery , useMutation , useLazyQuery } from '@apollo/react-hooks';
-import {   CREATE_TOPIC,TOPICS_BY_CATEGORY,FORUM_CATEGORIES,GET_PORTFOLIO,SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
+import {   TOPIC_BY_SLUG,CREATE_TOPIC,TOPICS_BY_CATEGORY,FORUM_CATEGORIES,GET_PORTFOLIO,SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,
+  SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
 
 export const useGetPotfolios = () => useQuery(GET_PORTFOLIOS);
 export const useGetPotfolio = (options) => useQuery(GET_PORTFOLIO,options);
@@ -47,20 +48,24 @@ export const useGetUser = () => useQuery(GET_USER);
 export const useGetForumCategories = () => useQuery(FORUM_CATEGORIES);
 export const useGetTopicsByCategory = (options) => useQuery(TOPICS_BY_CATEGORY, options);
 
+export const useGetTopicBySlug = options => useQuery(TOPIC_BY_SLUG, options)
+
 export const useCreateTopic = () => useMutation(CREATE_TOPIC, {
   update(cache, {data: {createTopic}}) {
     try {
       const { topicsByCategory } = cache.readQuery({query: TOPICS_BY_CATEGORY, variables: {
         category: createTopic.forumCategory.slug}});
-      cache.writeQuery({
-        query: TOPICS_BY_CATEGORY,
-        data: { topicsByCategory: [...topicsByCategory, createTopic]},
-        variables: {
-          category: createTopic.forumCategory.slug
-        }
-      });
+        cache.writeQuery({
+          query: TOPICS_BY_CATEGORY,
+          data: { topicsByCategory: [...topicsByCategory, createTopic]},
+          variables: {
+            category: createTopic.forumCategory.slug
+          }
+        });
     } catch(e) {}
   }
-})
+});
+
+
 
 // Forum actions End -----------------------
