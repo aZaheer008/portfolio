@@ -27,7 +27,7 @@ const data = {
   users : [
     {
       _id : user1Id,
-      avatar: "https://cdn1.vectorstock.com/i/1000x1000/31/95/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg",
+      avatar: "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png",
       email : "zaheer@gmail.com",
       name: "Zaheer Ahmed",
       username : "zaheer",
@@ -37,7 +37,7 @@ const data = {
     },
     {
       _id : user2Id,
-      avatar: "https://cdn1.vectorstock.com/i/1000x1000/31/95/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg",
+      avatar: "https://cdn.icon-icons.com/icons2/1736/PNG/512/4043260-avatar-male-man-portrait_113269.png",
       email : "Habeeb@gmail.com",
       name: "Habeeb Ahmed",
       username : "Habeeb",
