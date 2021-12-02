@@ -1,6 +1,6 @@
 
 import { useQuery , useMutation , useLazyQuery } from '@apollo/react-hooks';
-import {  POSTS_BY_TOPIC, TOPIC_BY_SLUG,CREATE_TOPIC,TOPICS_BY_CATEGORY,FORUM_CATEGORIES,GET_PORTFOLIO,SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,
+import {  CREATE_POST, POSTS_BY_TOPIC, TOPIC_BY_SLUG,CREATE_TOPIC,TOPICS_BY_CATEGORY,FORUM_CATEGORIES,GET_PORTFOLIO,SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,
   SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
 
 export const useGetPotfolios = () => useQuery(GET_PORTFOLIOS);
@@ -66,6 +66,7 @@ export const useCreateTopic = () => useMutation(CREATE_TOPIC, {
   }
 });
 
-export const useGetPostsByTopic = options => useQuery(POSTS_BY_TOPIC, options)
+export const useGetPostsByTopic = options => useQuery(POSTS_BY_TOPIC, options);
+export const useCreatePost = () => useMutation(CREATE_POST);
 
 // Forum actions End -----------------------
