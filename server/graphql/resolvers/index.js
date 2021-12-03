@@ -1,6 +1,17 @@
 
   const Portfolio = require('../../database/models/portfolio');
 
+  exports.mixedQueries = {
+    highlight: async (root, { limit = 3 }, ctx) => {
+      const portfolios = await ctx.models.Portfolio.getRandoms(limit);
+      const topics = await ctx.models.Topic.getRandoms(limit);
+      return {
+        portfolios,
+        topics
+      }
+    }
+  }
+
   exports.portfolioQueries = {
     portfolio: async (root,{id},ctx) => {
       return ctx.models.Portfolio.getById(id);

@@ -5,7 +5,7 @@ const { ApolloServer, gql } = require('apollo-server-express');
 // resolvers
 const { portfolioQueries, portfolioMutations,forumMutations ,userMutations,userQueries,forumQueries } = require('./resolvers');
 // types
-const { portfolioTypes , userTypes, forumTypes} = require('./types');
+const { portfolioTypes , userTypes, forumTypes,  mixedQueries} = require('./types');
 const { buildAuthContext } = require('./context');
 // Graphql Models
 const Portfolio = require('./models/Portfolio');
@@ -34,6 +34,7 @@ exports.createApolloServer = () => {
         topicBySlug(slug: String): Topic
 
         postsByTopic(slug: String, pageNum: Int, pageSize: Int): PagePosts
+        highlight(limit: Int): HighlightRes
     }
 
     type Mutation {
@@ -55,7 +56,8 @@ exports.createApolloServer = () => {
         Query: {
             ...portfolioQueries,
             ...userQueries,
-            ...forumQueries
+            ...forumQueries,
+            ...mixedQueries
             },
         Mutation: {
             ...portfolioMutations,
