@@ -41,13 +41,16 @@ const PostPage = () => {
               topic={topic}
               {...rest}
               {...pagination}
+              onPageChange={(pageNum, pageSize) => {
+                setPagination({ pageNum, pageSize})
+              }}
             />
     </BaseLayout>
   )
 };
 
-const Posts = ({posts, topic, user, fetchMore, count, pageSize}) => {
-  console.log("-----------posts-----",posts);
+const Posts = ({posts, topic, user, fetchMore, count, pageSize,pageNum,onPageChange}) => {
+  // console.log("-----------posts-----",posts);
     const pageEnd = useRef();
     const [ createPost, { error }] = useCreatePost();
     const [ isReplierOpen, setReplierOpen ] = useState(false);
@@ -119,6 +122,8 @@ const Posts = ({posts, topic, user, fetchMore, count, pageSize}) => {
                     }
                     <div className="pagination-container ml-auto">
                       <AppPagination
+                        pageNum={pageNum}
+                        onChange={onPageChange}
                         pageSize={pageSize}
                         count={count}
                       />

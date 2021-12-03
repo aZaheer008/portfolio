@@ -16,7 +16,7 @@ class Post {
     const posts = await this.Model
       .find({topic})
       .sort('createdAt')
-      .skips(skips)
+      .skip(skips)
       .limit(pageSize)
       .populate('topic')
       .populate('user')
