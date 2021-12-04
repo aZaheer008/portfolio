@@ -7,7 +7,7 @@ class ForumCategory extends BaseModel {
         return this.Model.find({});
     }
     getBySlug(slug){
-        return this.Model.findOne({slug})
+        return this.Model.findOne({slug}).populate('user');
     }
 }
 

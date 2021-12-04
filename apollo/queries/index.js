@@ -268,5 +268,30 @@ export const CREATE_POST = gql`
       ${postResponse}
     }
   }
-`
+`;
+
+export const GET_HIGHLIGHT = gql`
+  query Highlight($limit: Int) {
+    highlight(limit: $limit) {
+      topics {
+        _id
+        title
+        content
+        slug
+        user {
+          username
+          avatar
+        }
+      }
+      portfolios {
+        _id
+        title
+        description
+        jobTitle
+        startDate
+        endDate
+      }
+    }
+  }
+`;
 // FORUM QUERIES END ---------------------------

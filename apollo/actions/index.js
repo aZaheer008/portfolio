@@ -1,8 +1,10 @@
 
 import { useQuery , useMutation , useLazyQuery } from '@apollo/react-hooks';
-import {  CREATE_POST, POSTS_BY_TOPIC, TOPIC_BY_SLUG,CREATE_TOPIC,TOPICS_BY_CATEGORY,FORUM_CATEGORIES,GET_PORTFOLIO,SIGN_OUT,GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,
-  SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
+import {  GET_HIGHLIGHT,CREATE_POST, POSTS_BY_TOPIC, TOPIC_BY_SLUG,CREATE_TOPIC,TOPICS_BY_CATEGORY,FORUM_CATEGORIES,GET_PORTFOLIO,SIGN_OUT,
+  GET_USER_PORTFOLIOS,GET_USER,GET_PORTFOLIOS,SIGN_IN, CREATE_PORTFOLIO,UPDATE_PORTFOLIO,DELETE_PORTFOLIO } from "@/apollo/queries";
 
+
+export const useGetHighlight = options => useQuery(GET_HIGHLIGHT, options);
 export const useGetPotfolios = () => useQuery(GET_PORTFOLIOS);
 export const useGetPotfolio = (options) => useQuery(GET_PORTFOLIO,options);
 export const useGetUserPortfolios = () => useQuery(GET_USER_PORTFOLIOS);

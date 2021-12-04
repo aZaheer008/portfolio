@@ -8,6 +8,11 @@ class Portfolio extends BaseModel {
         this.writeRights = ['instructor', 'admin'];
     }
 
+    async getRandoms(limit) {
+        const query = await super.getRandoms(limit);
+        return query().populate('user');
+    }  
+
     getAll() {
         return this.Model.find({});
     }

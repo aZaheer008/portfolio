@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const { ApolloServer, gql } = require('apollo-server-express');
 
 // resolvers
-const { portfolioQueries, portfolioMutations,forumMutations ,userMutations,userQueries,forumQueries } = require('./resolvers');
+const { mixedQueries,portfolioQueries, portfolioMutations,forumMutations ,userMutations,userQueries,forumQueries } = require('./resolvers');
 // types
-const { portfolioTypes , userTypes, forumTypes,  mixedQueries} = require('./types');
+const { portfolioTypes , userTypes, forumTypes} = require('./types');
 const { buildAuthContext } = require('./context');
 // Graphql Models
 const Portfolio = require('./models/Portfolio');
